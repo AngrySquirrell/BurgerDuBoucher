@@ -1,11 +1,15 @@
-import React from "react";
-import { Flex, Image, Text, Box, Button } from "@mantine/core";
+
+import { Flex, Image, Text, Box, Button, Card, Avatar, Rating } from "@mantine/core";
 import Arrow from "../assets/Home/Arrow.svg";
 import BF from "../assets/Home/BF.svg";
 import Insta from "../assets/Socials/Insta.svg";
 import Facebook from "../assets/Socials/Facebook.svg";
 import Snap from "../assets/Socials/Snap.svg";
-import { NavLink } from "react-router-dom";
+
+import sit_in from "../assets/burger.svg";
+import food_order from "../assets/food-order.svg";
+import take_away from "../assets/tablet-wishlist.svg";
+import { Carousel } from "@mantine/carousel";
 
 const Home = () => {
     return (
@@ -68,27 +72,57 @@ const Home = () => {
                     <Image src={Snap} width={42} />
                 </Flex>
             </Flex>
-            <Flex bg={"pink.5"} w={"100%"} h={"25%"}>
-                <Flex>
-                    {" "}
-                    <Box>
-                        <Image />
-                        <Text>Commande</Text>
-                    </Box>{" "}
+            <Flex
+                bg={"black"}
+                w={"100%"}
+                h={"25%"}
+                align={"center"}
+                justify={"space-around"}
+            >
+                <Flex w={"60%"} align={"center"} >
+                    <Flex w={"33%"} direction={"column"} >
+                        <Flex pb={4} gap={8}>
+                        <Image src={food_order} width={45} />
+                        <Text ta={"center"} color="white" weight={400} size={24} >Commande</Text>
+                        </Flex>
+                        <Box w={"100%"} h={3} bg={"white"} className="bLine" />
+                    </Flex>
+                    <Flex w={"33%"} direction={"column"} >
+                        <Flex pb={4} gap={8}>
+                        <Image src={take_away} width={44} />
+                        <Text ta={"center"} color="white" weight={400} size={24} >Click & Collect</Text>
+                        </Flex>
+                        <Box w={"100%"} h={3} bg={"white"} className="bLine" />
+                    </Flex>
+                    <Flex w={"33%"} direction={"column"} >
+                        <Flex pb={4} gap={8}>
+                        <Image src={sit_in} width={45} />
+                        <Text ta={"center"} color="white" weight={400} size={24} >Sur place</Text>
+                        </Flex>
+                        <Box w={"100%"} h={3} bg={"white"} className="bLine" />
+                    </Flex>
                 </Flex>
-                <Flex>
-                    {" "}
-                    <Box>
-                        <Image />
-                        <Text>Click & Collect</Text>
-                    </Box>{" "}
-                </Flex>
-                <Flex>
-                    {" "}
-                    <Box>
-                        <Image />
-                        <Text>Sur Place</Text>
-                    </Box>{" "}
+                <Flex w={"30%"} h={"100%"}>
+                    <Carousel height={"100%"} w={"100%"} my={16} controlsOffset={-32} sx={{control: {backgroundColor: "orange"}, slide:{borderWidth: 1 ,borderColor: "orange"}}} >
+                        <Card w={"100%"} h={"100%"} bg={"dark.9"} px={32} py={16} sx={{ boxSizing: "border-box" }} withBorder >
+                            <Flex direction={"column"} gap={16}>
+
+                            <Card.Section h={"40%"}>
+                                <Flex justify={"space-between"} align={"center"} >
+                                    <Flex gap={16} >
+
+                                <Avatar/>
+                                <Text align={"center"} color="white"> Le mangeur</Text>
+                                    </Flex>
+                                <Rating value={4} readOnly />
+                                </Flex>
+                            </Card.Section>
+                            <Card.Section h={"60%"}  >
+                                <Text color="white" truncate lineClamp={2}> Lorem </Text>
+                            </Card.Section>
+                            </Flex>
+                        </Card>
+                    </Carousel>
                 </Flex>
             </Flex>
             <Flex bg={"pink.6"} w={"100%"} h={"10%"}></Flex>
